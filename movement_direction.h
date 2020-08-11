@@ -1,6 +1,6 @@
 #pragma once
 
-enum class Direction{
+enum class MovementDirection{
     FORWARD,
     BACKWARD,
     LEFT,

@@ -5,18 +5,20 @@
 #include <QString>
 #include <QByteArray>
 #include <optional>
+#include <QChar>
+#include <QTcpServer>
 
 class ConnectionHandler: public QObject{
-
     Q_OBJECT
 
 public:
     explicit ConnectionHandler(QObject *parent = 0);
+    bool listen();
     void disconect();
     bool canRead() const;
     bool canWrite() const;
-    std::optional<QByteArray> readChar();
-    bool writeChar(const QByteArray& message);
+    QChar readChar();
+    bool writeChar(const QChar message);
 
 signals:
 
@@ -29,6 +31,7 @@ private:
 
 
 private:
+    QTcpServer server;
     QTcpSocket* connexion;
 };
 

@@ -19,8 +19,10 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
         main.cpp \
-    motor_controller.cpp \
-    connection_handler.cpp
+        server_adapter.cpp \
+#    connection_handler.cpp \
+
+#    motor.cpp
 
 LIBS += -lwiringPi
 
@@ -30,11 +32,13 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 HEADERS += \
-    engine_status.h \
-    direction.h \
-    motor.h \
-    motor_controller.h \
-    command_receiver.h \
-    pin_state.h \
-    connection_handler.h \
-    movement_controller.h
+#    engine_status.h \
+#    motor.h \
+#    command_receiver.h \
+#    pin_state.h \
+#    connection_handler.h \
+#    movement_controller.h \
+#    rotation_direction.h \
+#    movement_direction.h \
+#    system_tasks_handler.h \
+    server_adapter.h

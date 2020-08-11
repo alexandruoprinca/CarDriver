@@ -1,16 +1,17 @@
 #pragma once
 
-#include "motor_controller.h"
+#include "motor.h"
+#include "movement_direction.h"
 
 class MovementController{
 
 public:
-    MovementController(const MotorController& frontLeft, const MotorController& frontRight, const MotorController& backLeft, const MotorController& backRight);
-
+    MovementController(const Motor& frontLeft, const Motor& frontRight, const Motor& backLeft, const Motor& backRight);
+    void Move(const MovementDirection directionToMove);
 
 private:
-    MotorController frontLeft;
-    MotorController frontRight;
-    MotorController backLeft;
-    MotorController backRight;
+    Motor& frontLeft;
+    Motor& frontRight;
+    Motor& backLeft;
+    Motor& backRight;
 };
