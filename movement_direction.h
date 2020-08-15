@@ -1,8 +1,8 @@
 #pragma once
 
-enum class MovementDirection{
-    FORWARD,
-    BACKWARD,
-    LEFT,
-    RIGHT,
+enum class MovementDirection : char{
+    FORWARD = 'f',
+    BACKWARD = 'b',
+    LEFT = 'l',
+    RIGHT = 'r',
 };

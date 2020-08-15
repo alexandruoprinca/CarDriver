@@ -5,13 +5,18 @@
 #include "movement_direction.h"
 #include "engine_status.h"
 #include "connection_handler.h"
+#include "server_adapter.h"
 
-class CommandReceiver{
+class CommandReceiver : public QObject{
+
+    Q_OBJECT
+
 public:
-    CommandReceiver(ConnectionHandler& connecter):connexion{connecter}{}
-    std::variant<MovementDirection,EngineStatus> getCommand();
+    explicit CommandReceiver(ServerAdapter& connecter, QObject* parent=0);
+public slots:
+    std::variant<MovementDirection,EngineStatus> getCommand(const QByteArray data);
 
 private:
-    ConnectionHandler& connexion;
+    ServerAdapter& connexion;
 };
 

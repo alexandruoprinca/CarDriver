@@ -1,6 +1,6 @@
 #pragma once
 
-enum class EngineStatus{
-    ON,
-    OFF,
+enum class EngineStatus : char{
+    ON = 's',
+    OFF = 'x',
 };
