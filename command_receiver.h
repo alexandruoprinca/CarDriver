@@ -4,7 +4,6 @@
 #include <QTcpSocket>
 #include "movement_direction.h"
 #include "engine_status.h"
-#include "connection_handler.h"
 #include "server_adapter.h"
 
 class CommandReceiver : public QObject{
@@ -13,8 +12,13 @@ class CommandReceiver : public QObject{
 
 public:
     explicit CommandReceiver(ServerAdapter& connecter, QObject* parent=0);
+
+signals:
+    void newMovementCommand(MovementDirection);
+    void newEngineCommand(EngineStatus);
+
 public slots:
-    std::variant<MovementDirection,EngineStatus> getCommand(const QByteArray data);
+    void getCommand(const QByteArray data);
 
 private:
     ServerAdapter& connexion;

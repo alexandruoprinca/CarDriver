@@ -1,6 +1,9 @@
 #pragma once
 
+namespace Car{
 enum class PinState{
-    HIGH,
-    LOW
+    LOW_VOLTAGE,
+    HIGH_VOLTAGE
 };
+
+}

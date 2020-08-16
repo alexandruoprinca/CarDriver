@@ -1,6 +1,7 @@
 #include "motor.h"
+#include <QDebug>
 #include <chrono>
 
-namespace{
-constexpr static std::chrono::milliseconds DELAY_DURATION{100};
+void Motor::Rotate(const RotationDirection direction){
+    qDebug() << "Rotating in direction" << static_cast<char>(direction) << '\n';
 }
