@@ -1,6 +1,8 @@
 #include "server_adapter.h"
 #include <QtDebug>
 
+using namespace Car::Network;
+
 ServerAdapter::ServerAdapter(QObject* parent):
     QObject(parent)
 {

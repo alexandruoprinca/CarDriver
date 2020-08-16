@@ -6,14 +6,18 @@
 #include "wiringPi.h"
 #include "engine_status.h"
 
-class SystemTaskHandler : public QObject{
+namespace Car::System{
 
-Q_OBJECT
+    class SystemTaskHandler : public QObject{
 
-public:
-    explicit SystemTaskHandler(CommandReceiver& cr, MovementController& ctrl, QObject* parent=0) noexcept;
-private:
-    MovementController& controller;
-    CommandReceiver& commandReceiver;
+    Q_OBJECT
 
-};
+    public:
+        explicit SystemTaskHandler(Car::Network::CommandReceiver& cr, Car::Motion::MovementController& ctrl, QObject* parent=0) noexcept;
+    private:
+        Car::Motion::MovementController& controller;
+        Car::Network::CommandReceiver& commandReceiver;
+
+    };
+
+}

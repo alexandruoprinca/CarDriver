@@ -1,14 +1,18 @@
 #include "system_tasks_handler.h"
 
-SystemTaskHandler::SystemTaskHandler(CommandReceiver &cr, MovementController& ctrl, QObject* parent) noexcept:
+using namespace Car::System;
+
+SystemTaskHandler::SystemTaskHandler(Car::Network::CommandReceiver &cr,
+                                     Car::Motion::MovementController& ctrl,
+                                     QObject* parent) noexcept:
     QObject(parent),
     controller{ctrl},
     commandReceiver{cr}
 {
-    connect(&commandReceiver, &CommandReceiver::newMovementCommand,
-            &controller, &MovementController::Move);
+    connect(&commandReceiver, &Car::Network::CommandReceiver::newMovementCommand,
+            &controller, &Car::Motion::MovementController::Move);
 
-    connect(&commandReceiver, &CommandReceiver::newEngineCommand,
-            &controller, &MovementController::ChangeEngineStatus);
+    connect(&commandReceiver, &Car::Network::CommandReceiver::newEngineCommand,
+            &controller, &Car::Motion::MovementController::ChangeEngineStatus);
 
 }

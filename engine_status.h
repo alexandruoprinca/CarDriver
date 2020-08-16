@@ -1,6 +1,10 @@
 #pragma once
 
-enum class EngineStatus : char{
-    ON = 's',
-    OFF = 'x',
-};
+namespace Car::Motion{
+
+    enum class EngineStatus : char{
+        ON = 's',
+        OFF = 'x',
+    };
+
+}

@@ -1,8 +1,12 @@
 #pragma once
 
-enum class MovementDirection : char{
-    FORWARD = 'f',
-    BACKWARD = 'b',
-    LEFT = 'l',
-    RIGHT = 'r',
-};
+namespace Car::Motion{
+
+    enum class MovementDirection : char{
+        FORWARD = 'f',
+        BACKWARD = 'b',
+        LEFT = 'l',
+        RIGHT = 'r',
+    };
+
+}

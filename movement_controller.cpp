@@ -1,6 +1,8 @@
 #include "movement_controller.h"
 #include <QtDebug>
 
+using namespace Car::Motion;
+
 MovementController::MovementController(DriveTrain& frontWheels, DriveTrain& backWheels, Engine& engine, QObject* parent) noexcept :
       QObject(parent),
       frontWheels{frontWheels},

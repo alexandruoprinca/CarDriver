@@ -6,16 +6,20 @@
 #include "drive_train.h"
 #include "engine.h"
 
-class MovementController: public QObject{
+namespace Car::Motion{
 
-public:
-    MovementController(DriveTrain& frontWheels, DriveTrain& backWheels, Engine& engine, QObject* parent=0) noexcept;
-public slots:
-    void Move(const MovementDirection directionToMove);
-    void ChangeEngineStatus(const EngineStatus status);
+    class MovementController: public QObject{
 
-private:
-    DriveTrain& frontWheels;
-    DriveTrain& backWheels;
-    Engine& engine;
-};
+    public:
+        MovementController(DriveTrain& frontWheels, DriveTrain& backWheels, Engine& engine, QObject* parent=0) noexcept;
+    public slots:
+        void Move(const MovementDirection directionToMove);
+        void ChangeEngineStatus(const EngineStatus status);
+
+    private:
+        DriveTrain& frontWheels;
+        DriveTrain& backWheels;
+        Engine& engine;
+    };
+
+}

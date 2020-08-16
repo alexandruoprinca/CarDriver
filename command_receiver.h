@@ -6,21 +6,24 @@
 #include "engine_status.h"
 #include "server_adapter.h"
 
-class CommandReceiver : public QObject{
+namespace Car::Network{
 
-    Q_OBJECT
+    class CommandReceiver : public QObject{
 
-public:
-    explicit CommandReceiver(ServerAdapter& connecter, QObject* parent=0);
+        Q_OBJECT
 
-signals:
-    void newMovementCommand(MovementDirection);
-    void newEngineCommand(EngineStatus);
+    public:
+        explicit CommandReceiver(ServerAdapter& connecter, QObject* parent=0);
 
-public slots:
-    void getCommand(const QByteArray data);
+    signals:
+        void newMovementCommand(Car::Motion::MovementDirection);
+        void newEngineCommand(Car::Motion::EngineStatus);
 
-private:
-    ServerAdapter& connexion;
-};
+    public slots:
+        void getCommand(const QByteArray data);
 
+    private:
+        ServerAdapter& connexion;
+    };
+
+}

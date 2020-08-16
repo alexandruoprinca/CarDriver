@@ -1,9 +1,10 @@
 #pragma once
 
-namespace Car{
-enum class PinState{
-    LOW_VOLTAGE,
-    HIGH_VOLTAGE
-};
+namespace Car::Motion {
+
+    enum class PinState{
+        LOW_VOLTAGE,
+        HIGH_VOLTAGE
+    };
 
 }
