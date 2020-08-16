@@ -1,5 +1,7 @@
 #include "engine.h"
 
+using namespace Car::Motion;
+
 Engine::Engine(QObject* parent) noexcept:
     QObject(parent)
 {

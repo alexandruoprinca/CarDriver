@@ -1,6 +1,10 @@
 #pragma once
 
-enum class RotationDirection{
-    FORWARD,
-    BACKWARD
-};
+namespace Car::Motion{
+
+    enum class RotationDirection{
+        FORWARD,
+        BACKWARD
+    };
+
+}

@@ -4,25 +4,28 @@
 #include <QTcpSocket>
 #include <QTcpServer>
 
+namespace Car::Network{
 
-class ServerAdapter : public QObject{
+    class ServerAdapter : public QObject{
 
-    Q_OBJECT
+        Q_OBJECT
 
-public:
-    explicit ServerAdapter(QObject *parent=0);
-    void writeChar(QByteArray character);
+    public:
+        explicit ServerAdapter(QObject *parent=0);
+        void writeChar(QByteArray character);
 
-signals:
-    void newMessage(QByteArray);
+    signals:
+        void newMessage(QByteArray);
 
-public slots:
-    void connected();
-    void readForData();
-    void discardSocket();
+    public slots:
+        void connected();
+        void readForData();
+        void discardSocket();
 
-private:
-    QTcpServer server{};
-    QTcpSocket* activeConnection;
+    private:
+        QTcpServer server{};
+        QTcpSocket* activeConnection;
 
-};
+    };
+
+}
