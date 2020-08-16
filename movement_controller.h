@@ -1,17 +1,21 @@
 #pragma once
 
+#include <QObject>
 #include "motor.h"
 #include "movement_direction.h"
+#include "drive_train.h"
+#include "engine.h"
 
-class MovementController{
+class MovementController: public QObject{
 
 public:
-    MovementController(const Motor& frontLeft, const Motor& frontRight, const Motor& backLeft, const Motor& backRight);
+    MovementController(DriveTrain& frontWheels, DriveTrain& backWheels, Engine& engine, QObject* parent=0) noexcept;
+public slots:
     void Move(const MovementDirection directionToMove);
+    void ChangeEngineStatus(const EngineStatus status);
 
 private:
-    Motor& frontLeft;
-    Motor& frontRight;
-    Motor& backLeft;
-    Motor& backRight;
+    DriveTrain& frontWheels;
+    DriveTrain& backWheels;
+    Engine& engine;
 };

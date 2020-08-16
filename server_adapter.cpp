@@ -33,7 +33,7 @@ void ServerAdapter::readForData()
         return;
     }
     QByteArray receivedData = activeConnection->readAll();
-    qDebug() << "Received "<<receivedData<<"\n";
+    qDebug() << "ServerAdapter:: Received "<<receivedData<<"\n";
     emit newMessage(receivedData);
 }
 

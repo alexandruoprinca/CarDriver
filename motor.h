@@ -5,11 +5,14 @@
 
 class Motor{
 public:
-    Motor(const int pinNumber);
+    constexpr Motor(const int pinNumber) noexcept:
+        pinNumber{pinNumber}
+    {
+    }
     void Rotate(const RotationDirection direction);
 
-private:
-    void setState(const PinState state);
+//private:
+//    void setState(const PinState state){}
 private:
     int pinNumber;
 };
