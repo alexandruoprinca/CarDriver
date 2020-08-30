@@ -20,13 +20,12 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += \
         main.cpp \
         server_adapter.cpp \
-        motor.cpp \
         command_receiver.cpp \
     movement_controller.cpp \
     system_tasks_handler.cpp \
     engine.cpp
 
-LIBS += -lwiringPi
+LIBS += -lwiringPi -lpthread
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
@@ -35,7 +34,6 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 
 HEADERS += \
     engine_status.h \
-    motor.h \
     command_receiver.h \
     pin_state.h \
     movement_controller.h \
