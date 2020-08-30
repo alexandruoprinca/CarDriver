@@ -3,10 +3,10 @@
 
 using namespace Car::Motion;
 
-MovementController::MovementController(DriveTrain& frontWheels, DriveTrain& backWheels, Engine& engine, QObject* parent) noexcept :
+MovementController::MovementController(MotorPair& frontWheels, MotorPair& backWheels, Engine& engine, QObject* parent) noexcept :
       QObject(parent),
-      frontWheels{frontWheels},
-      backWheels{backWheels},
+      leftWheels{frontWheels},
+      rightWheels{backWheels},
       engine{engine}
 {
 }
@@ -15,6 +15,20 @@ void MovementController::Move(const MovementDirection directionToMove){
 
     if(engine.isTurnedOn()){
         qDebug() << "MocvementController::Moving into direction " << static_cast<char>(directionToMove) << '\n';
+        switch(directionToMove){
+        case MovementDirection::FORWARD:
+            leftWheels.Rotate(RotationDirection::FORWARD);
+            break;
+        case MovementDirection::BACKWARD:
+            leftWheels.Rotate(RotationDirection::BACKWARD);
+            break;
+        case MovementDirection::LEFT:
+            rightWheels.Rotate(RotationDirection::FORWARD);
+            break;
+        case MovementDirection::RIGHT:
+            leftWheels.Rotate(RotationDirection::FORWARD);
+            break;
+        }
     }
 }
 
